@@ -49,10 +49,10 @@ public class Subsets {
 	int[] nums = {1, 2};
 	List<List<Integer>> lists = subsets(nums);
 	for (List<Integer> arrayList : lists) {
-		for (Integer integer : arrayList) {
-			System.out.print(integer.toString() + " ");
-		}
-		System.out.println();
+	    for (Integer integer : arrayList) {
+		System.out.print(integer.toString() + " ");
+	    }
+       	    System.out.println();
 	}
     }
 }
