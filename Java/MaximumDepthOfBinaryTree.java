@@ -19,17 +19,10 @@ public class MaximumDepthOfBinaryTree {
 
 	public static int maxDepth(TreeNode root) {
 		if(root == null)
-			return 0;
-		if(root.left == null && root.right == null)
-			return 1;
-		int leftMaxDepth = 1, rightMaxDepth = 1;
-		if(root.left != null) {
-			leftMaxDepth += maxDepth(root.left);
-		}
-		if(root.right != null) {
-			rightMaxDepth += maxDepth(root.right);
-		}
-		return leftMaxDepth > rightMaxDepth ? leftMaxDepth : rightMaxDepth;
+            return  0;
+        int maxLeft = maxDepth(root.left);
+        int maxRight = maxDepth(root.right);
+        return maxLeft + 1 > maxRight + 1 ? maxLeft + 1 : maxRight + 1;
 	}
 
 	public static void main(String[] args) {
