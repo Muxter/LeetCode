@@ -23,7 +23,7 @@ public class SortColors {
 				case 0:
 					swap(nums, i, k);
 					i++;
-					k++;
+					k = (k > i) ? k : i;
 				break;
 
 				case 1:
