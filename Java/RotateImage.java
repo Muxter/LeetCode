@@ -14,6 +14,10 @@ public class RotateImage {
 
 	// 先对矩阵进行转置, 再交换列
 	public static void rotate(int[][] matrix) {
+		if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return;
+        }
+		
 		// 转置
 		int n = matrix.length;
         for (int i = 0; i < n; i++) {
