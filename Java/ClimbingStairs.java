@@ -24,19 +24,19 @@ public class ClimbingStairs {
 		return climbStairs1(n-1) + climbStairs1(n-2);
     }
 
-    // None-Recursion
+    // Dynamic Programming
     public static int climbStairs2(int n) {
-    	if(n == 1)
-    		return 1;
-    	if(n == 2)
-    		return 2;
-    	int a = 1, b = 2, sum = 0;
-    	for(int i = 3; i <= n; i++) {
-    		sum = a+b;
-    		a = b;
-    		b = sum;
-    	}
-    	return sum;
+    	if(n <= 1) {
+            return n;
+        }
+        int pre = 1, ppre = 1;
+        int curr = 0;
+        for(int i = 2; i <= n; i++) {
+            curr = pre + ppre;
+            ppre = pre;
+            pre = curr;
+        }
+        return curr;
     }
 
     public static void main(String[] args) {
