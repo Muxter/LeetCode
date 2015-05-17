@@ -18,19 +18,24 @@ public class RemoveDuplicatesFromSortedArrayII {
         	return 0;
         }
 
-        int cur = 0;
-        int i ,j;
-        for(i = 0; i < nums.length;){
-            int now = nums[i];
-            for( j = i; j < nums.length; j++){
-                if(nums[j] != now)
-                    break;
-                if(j-i < 2)
-                    nums[cur++] = now; 
-            }
-            i = j;
+        if(nums.length < 2) {
+        	return nums.length;
         }
-        return cur;
+
+        int i = 0;
+        boolean isRepeat = false;
+        for (int j = 1; j < nums.length; j++) {
+        	if(nums[j] != nums[i]) {
+        		isRepeat = false;
+        		nums[++i] = nums[j];
+        	} else {
+        		if(!isRepeat) {
+        			isRepeat = true;
+        			nums[++i] = nums[j];
+        		}
+        	}
+        }
+        return i + 1;
     }
 
     public static void main(String[] args) {
