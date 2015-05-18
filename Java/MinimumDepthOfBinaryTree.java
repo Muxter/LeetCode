@@ -16,22 +16,28 @@ class TreeNode {
 }
 
 public class MinimumDepthOfBinaryTree {
-	public int minDepth(TreeNode root) {
+	public static int minDepth(TreeNode root) {
 		if (root == null){
             return 0;
         }
-        if (root.left == null && root.right == null){
-            return 1;
+        int leftDepth = minDepth(root.left);
+        int rightDepth = minDepth(root.right);
+        if (leftDepth == 0) {
+            return rightDepth + 1;
         }
-        int leftDepth = Integer.MAX_VALUE;
-        if (root.left != null){
-            leftDepth = minDepth(root.left) + 1 ;
+        if(rightDepth == 0) {
+            return leftDepth + 1;
         }
-        int rightDepth = Integer.MAX_VALUE;
-        if (root.right != null){
-            rightDepth = minDepth(root.right) + 1;
-        }
-        
-        return leftDepth < rightDepth ? leftDepth : rightDepth;
+        return leftDepth + 1 < rightDepth + 1 ? leftDepth + 1: rightDepth + 1;
+    }
+
+    public static void main(String[] args) {
+        TreeNode testTree1 = new TreeNode(1);
+        System.out.println(minDepth(testTree1));
+        TreeNode testTree2 = null;
+        System.out.println(minDepth(testTree2));
+        TreeNode testTree3 = new TreeNode(1);
+        testTree3.left = new TreeNode(2);
+        System.out.println(minDepth(testTree3));
     }
 }
