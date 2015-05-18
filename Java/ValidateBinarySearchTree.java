@@ -69,6 +69,25 @@ public class ValidateBinarySearchTree {
         inOrderTraversal(root.right, list);  
     }  
 
+
+    private TreeNode lastNode = null
+
+    public boolean isValidBST2(TreeNode root) {
+    	if(root != null) {
+    		if(!isValidBST2(root.left)) {
+    			return false;
+    		}
+    		if(lastNode != null && lastNode.val >= root.val) {
+    			return false;
+    		}
+    		lastNode = root;
+    		if(!isValidBST2(root.right)) {
+    			return false;
+    		}
+    	}
+    	return true;
+	}
+
 	public static void main(String[] args) {
 		
 	}
