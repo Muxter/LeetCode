@@ -22,6 +22,8 @@ public class MinimumDepthOfBinaryTree {
         }
         int leftDepth = minDepth(root.left);
         int rightDepth = minDepth(root.right);
+
+        // 某结点只有单分支，若不判断，直接比较的化。会返回0;
         if (leftDepth == 0) {
             return rightDepth + 1;
         }
