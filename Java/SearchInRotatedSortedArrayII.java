@@ -22,9 +22,6 @@ public class SearchInRotatedSortedArrayII {
         int start = 0, end = nums.length - 1, mid;
         while(start + 1 < end) {
             mid = start + (end - start) / 2;
-            System.out.println("start: " + start);
-            System.out.println("mid: " + mid);
-            System.out.println("end: " + end);
             if(nums[mid] == target) {
                 return true;
             }
@@ -54,6 +51,8 @@ public class SearchInRotatedSortedArrayII {
 
     public static void main(String[] args) {
     	int[] nums1 = {2, 2, 2, 3, 1};
+        int[] nums2 = {5, 1, 3};
         System.out.println(search(nums1, 1));
+        System.out.println(search(nums2, 3));
     }
 }
