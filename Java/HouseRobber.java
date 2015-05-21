@@ -14,14 +14,14 @@
 
 public class HouseRobber {
 	// f[i] = max{f[i-2] + nums[i], f[i-1]}
-	public static int rob(int[] nums) {
+	public static int rob1(int[] nums) {
 		int n = nums.length;
 		int[] f = new int[n];
-		if (n == 1) {
+		if (n >= 1) {
 			f[0] = nums[0];
 		}
 		if(n >= 2) {
-			f[1] = f[0] > nums[1] ? f[0] : nums[1];
+			f[1] = nums[0] > nums[1] ? nums[0] : nums[1];
 		}
 		for (int i = 2; i < nums.length; i++) {
 			f[i] = f[i - 1] > f[i - 2] + nums[i] ? f[i - 1] : f[i - 2] + nums[i];
@@ -29,10 +29,30 @@ public class HouseRobber {
 		return f[n - 1];
     }
 
+    public static int rob2(int[] nums) {
+    	int p = 0; // p[i-2]
+    	int q = 0; // p[i-1]
+    	for (int i = 0; i < nums.length; i++){
+        	int current = p + nums[i] > q ? p + nums[i] : q;
+        	p = q;
+        	q = current;
+    	}
+    	return q;
+    }
+
     public static void main(String[] args) {
     	int[] nums1 = {1, 1, 2, 3, 5};
     	int[] nums2 = {2, 1, 0, 2, 4};
-    	System.out.println(rob(nums1));
-    	System.out.println(rob(nums2));
+    	int[] nums3 = {5};
+    	int[] nums4 = {5, 2};
+    	System.out.println(rob1(nums1));
+    	System.out.println(rob1(nums2));
+    	System.out.println(rob1(nums3));
+    	System.out.println(rob1(nums4));
+
+    	System.out.println(rob2(nums1));
+    	System.out.println(rob2(nums2));
+    	System.out.println(rob2(nums3));
+    	System.out.println(rob2(nums4));
     }
 }
