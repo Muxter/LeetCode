@@ -13,14 +13,19 @@ public class BestTimeToBuyAndSellStock {
 		if (prices == null || prices.length == 0) {
 			return 0;
 		}
-		int n = prices.length;
-		int min = Integer.MAX_VALUE;
-		int profit = 0;
-		for (int i = 0; i < n; i++) {
-			min = prices[i] < min ? prices[i] : min;
-			profit = (prices[i] - min) > profit ? prices[i] - min : profit;
+		int buyTime = 0, sellTime = 0, maxProfit = 0, currProfit = 0;
+		for (int i = 0; i < prices.length; i++) {
+			sellTime = i;
+			currProfit = prices[sellTime] - prices[buyTime];
+			if(currProfit <= 0) {
+				buyTime = i;
+			}
+
+			if (currProfit > maxProfit) {
+				maxProfit = currProfit;
+			}
 		}
-		return profit;
+		return maxProfit;
     }
 
     public static void main(String[] args) {
