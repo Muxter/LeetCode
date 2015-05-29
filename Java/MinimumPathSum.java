@@ -10,7 +10,7 @@
  */
 
 public class MinimumPathSum {
-	public int minPathSum(int[][] grid) {
+	public static int minPathSum(int[][] grid) {
         if(grid == null || grid.length == 0 || grid[0].length == 0) {
             return 0;
         }
@@ -33,5 +33,22 @@ public class MinimumPathSum {
             }
         }
         return result[rows-1][columns-1];
+    }
+
+    public static void main(String[] args) {
+    	int[][] grid1 = {{1, 2},
+    					 {1, 1}};
+    	System.out.println(minPathSum(grid1));
+
+    	int[][] grid2 = null;
+    	System.out.println(minPathSum(grid2));
+
+    	int[][] grid3 = {{2, 3, 1}};
+    	System.out.println(minPathSum(grid3));
+
+    	int[][] grid4 = {{2, 3, 1},
+    					 {1, 2, 1},
+    					 {3, 5, 1}};
+    	System.out.println(minPathSum(grid4));
     }
 }
