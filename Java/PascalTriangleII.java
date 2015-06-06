@@ -35,7 +35,30 @@ public class PascalTriangleII {
     }
 
     public static List<Integer> getRow2(int rowIndex) {
-    	
+    	if (rowIndex < 0) {
+    		return null;
+    	}
+    	List<Integer> result = new ArrayList<Integer>();
+    	if (rowIndex == 0) {
+    		result.add(1);
+    	}
+
+    	for (int i = 1; i <= rowIndex; i++) {
+    		List<Integer> tmp = new ArrayList<Integer>();
+    		for (int j = 0; j <= i; j++) {
+    			tmp.add(-1);
+    		}
+
+    		for (int j = 0; j <= i; j++) {
+    			if (j == 0 || j == i) {
+    				tmp.set(j, 1);
+    			} else {
+    				tmp.set(j, result.get(j) + result.get(j-1));
+    			}
+    		}
+    		result = tmp;
+    	}
+    	return result;
     }
 
     public static void main(String[] args) {
