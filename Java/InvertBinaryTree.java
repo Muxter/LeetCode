@@ -23,6 +23,8 @@
  *
  */
 
+import java.util.Stack;
+
 class TreeNode {
 	int val;
 	TreeNode left;
@@ -31,7 +33,7 @@ class TreeNode {
 }
 
 public class InvertBinaryTree {
-	public static TreeNode invertTree(TreeNode root) {
+	public static TreeNode invertTree1(TreeNode root) {
 		if (root == null) {
 			return null;
 		}
@@ -39,9 +41,31 @@ public class InvertBinaryTree {
 		root.left = root.right;
 		root.right = tmp;
 
-		root.left = invertTree(root.left);
-		root.right = invertTree(root.right);
+		root.left = invertTree1(root.left);
+		root.right = invertTree1(root.right);
 
+		return root;
+    }
+
+    // non-recursive
+    public static TreeNode invertTree2(TreeNode root) {
+		if (root == null) {
+			return null;
+		}
+		Stack<TreeNode> stack = new Stack<TreeNode>();
+		stack.push(root);
+		while(!stack.isEmpty()) {
+			TreeNode node = stack.pop();
+			TreeNode tmp = node.left;
+			node.left = node.right;
+			node.right = tmp;
+			if(node.left != null) {
+				stack.push(node.left);
+			}
+			if(node.right != null) {
+				stack.push(node.right);
+			}
+		}
 		return root;
     }
 
@@ -76,6 +100,6 @@ public class InvertBinaryTree {
 
 		System.out.println();
 
-		traversePreOrder(invertTree(node4));
+		traversePreOrder(invertTree2(node4));
 	}
 }
