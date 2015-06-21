@@ -1,4 +1,4 @@
-# LeetCode刷题记录
+# LeetCode Problem Solving Record
 This is my LeetCode solution project.
 I will keep updating and optimizing all the problem.
 
