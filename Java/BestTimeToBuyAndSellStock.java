@@ -30,6 +30,6 @@ public class BestTimeToBuyAndSellStock {
 
     public static void main(String[] args) {
     	int[] prices = {3, 2, 3, 1, 2};
-    	System.out.println(maxProfit(prices));	
+    	System.out.println(maxProfit(prices));
     }
 }
