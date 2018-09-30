@@ -1,6 +1,10 @@
-# LeetCode Problem Solving Record
-This is my LeetCode solution project.
-I will keep updating and optimizing.
+# LeetCode Solutions
 
  - LeetCode Problem List: [https://leetcode.com/problemset/algorithms/](https://leetcode.com/problemset/algorithms/)
- - LeetCode Problem Solution Reference: [http://www.jiuzhang.com/solutions/](http://www.jiuzhang.com/solutions/)
+
+Test cases in solutions of this project is too simple and not complete. 
+You should commit it on LeetCode website. 
+
+| #   | Title | Difficulty | Tag |
+| :-: | :-:   | :-:        | :-: |
+| 1   | [Two Sum](https://leetcode.com/problems/two-sum/description/) | Easy        | Array, Hash Table|
